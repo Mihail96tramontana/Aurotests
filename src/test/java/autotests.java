@@ -16,7 +16,6 @@ public class autotests {
  void testOne() {
      //шаг 1
      //шаг 2
-     //шаг 3
 
     }
 }
