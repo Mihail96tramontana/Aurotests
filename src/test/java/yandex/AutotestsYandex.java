@@ -6,6 +6,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -39,17 +40,15 @@ public class AutotestsYandex {
      //клик по глазику
      $(".field-type__toggler").click();
      //номер мобильного телефона
-     $("#phone").setValue("9951496946");
+     $("#phone").setValue("9951896940");
      //чекбокс соглашения на обработку данных (выключение)
      $("#eula_accepted").click();
      //кнопка регистрации
      $(".Button2").click();
+     //кнопка получения кода
+     $(".Button2").click();
 
      //проверка результата
-     //$(".registration__form").shouldHave(text("Михаил"),
-             //text("Любезнов"),
-             //text("mihail123lubeznow"),
-             //text("Fh[fyutk123"),
-             //text("9951896940"));
+     $(".registration__form-text").shouldHave(text("Минутку, код подтверждения отправлен на указанный номер"));
     }
 }
