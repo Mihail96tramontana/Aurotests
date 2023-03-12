@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -49,6 +50,13 @@ public class AutotestYandex {
      $(".Button2").click();
 
      //проверка результата
+     $("#firstname").shouldHave(value("Михаил"));
+     $("#lastname").shouldHave(value("Любезнов"));
+     $("#login").shouldHave(value("mihail123lubeznow"));
+     $("#password").shouldHave(value("Fh[fyutk123"));
+     $("#password_confirm").shouldHave(value("Fh[fyutk123"));
+     $("#phone").shouldHave(value("9951896940"));
      $(".registration__form-text").shouldHave(text("Минутку, код подтверждения отправлен на указанный номер"));
+
     }
 }
