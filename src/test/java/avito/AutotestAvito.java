@@ -7,9 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class AutotestAvito {
 
@@ -24,22 +22,20 @@ public class AutotestAvito {
     @Test
     void atomTest() {
 
+        StepsWithAnnotations steps = new StepsWithAnnotations();
+
         //открываем страницу сайта
-        open("https://www.avito.ru");
-
+        steps.openSite();
         //ввод искомого запроса в поисковую строку сайта
-        $(".input-input-Zpzc1").setValue("Atomic Heart на пк").pressEnter();
+        steps.inputValues();
         //фильтруем по самым дешёвым
-        $(".select-select-IdfiC").click();
-        $(byText("Дешевле")).click();
+        steps.filter();
         //сохраняем поиск
-        $(".styles-module-root-_uNWU").click();
+        steps.saveSearch();
         //клик по кнопке регистрации
-        $(".css-1gud50c").click();
+        steps.clickRegister();
 
-        //проверка результата
-        $("[name=username]").shouldBe(empty);
-        $(".EnterPhoneForm-container-ihcDc").shouldHave(text("Регистрация"),
-                text("Уже есть профиль?"));
+        //проверка результатов
+        steps.checkResults();
     }
 }
