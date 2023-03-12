@@ -6,7 +6,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -38,6 +38,7 @@ public class AutotestAvito {
         $(".css-1gud50c").click();
 
         //проверка результата
+        $("[name=username]").shouldBe(empty);
         $(".EnterPhoneForm-container-ihcDc").shouldHave(text("Регистрация"),
                 text("Уже есть профиль?"));
     }
