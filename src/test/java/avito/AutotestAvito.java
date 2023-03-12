@@ -38,6 +38,7 @@ public class AutotestAvito {
         $(".css-1gud50c").click();
 
         //проверка результата
-        $(".EnterPhoneForm-container-ihcDc").shouldHave(text("Регистрация"));
+        $(".EnterPhoneForm-container-ihcDc").shouldHave(text("Регистрация"),
+                text("Уже есть профиль?"));
     }
 }
