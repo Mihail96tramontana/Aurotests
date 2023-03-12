@@ -6,6 +6,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -21,9 +22,11 @@ public class AutotestAvito {
     }
 
     @Test
-    void testTwo() {
+    void atomTest() {
+
         //открываем страницу сайта
         open("https://www.avito.ru");
+
         //ввод искомого запроса в поисковую строку сайта
         $(".input-input-Zpzc1").setValue("Atomic Heart на пк").pressEnter();
         //фильтруем по самым дешёвым
@@ -34,5 +37,7 @@ public class AutotestAvito {
         //клик по кнопке регистрации
         $(".css-1gud50c").click();
 
+        //проверка результата
+        $(".EnterPhoneForm-container-ihcDc").shouldHave(text("Регистрация"));
     }
 }

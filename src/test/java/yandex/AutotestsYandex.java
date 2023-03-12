@@ -23,10 +23,10 @@ public class AutotestsYandex {
  @Test
  void testRegisrtation() {
 
-     //шаг 1 открываем страницу
+     //открываем страницу
      open("/registration");
 
-     //шаг 2 поле имени
+     //поле имени
      $("#firstname").setValue("Михаил");
      //поле фамилии
      $("#lastname").setValue("Любезнов");
