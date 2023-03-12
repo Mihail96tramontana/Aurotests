@@ -17,14 +17,15 @@ public class AutotestsYandex {
         Configuration.baseUrl = "https://passport.yandex.ru";
         Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = true;
+        SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
  @Test
  void testRegisrtation() {
-     SelenideLogger.addListener("allure", new AllureSelenide());
 
      //шаг 1 открываем страницу
-     open("https://passport.yandex.ru/registration");
+     open("/registration");
+
      //шаг 2 поле имени
      $("#firstname").setValue("Михаил");
      //поле фамилии
@@ -38,11 +39,12 @@ public class AutotestsYandex {
      //клик по глазику
      $(".field-type__toggler").click();
      //номер мобильного телефона
-     $("#phone").setValue("9951896940");
+     $("#phone").setValue("9951496946");
      //чекбокс соглашения на обработку данных (выключение)
      $("#eula_accepted").click();
      //кнопка регистрации
      $(".Button2").click();
+
      //проверка результата
      //$(".registration__form").shouldHave(text("Михаил"),
              //text("Любезнов"),
