@@ -1,11 +1,14 @@
+package yandex;
+
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class autotests {
+public class AutotestsYandex {
 
 
     @BeforeAll
@@ -16,7 +19,7 @@ public class autotests {
     }
 
  @Test
- void testOne() {
+ void testRegisrtation() {
      //шаг 1 открываем страницу
      open("https://passport.yandex.ru/registration");
      //шаг 2 поле имени
@@ -33,7 +36,15 @@ public class autotests {
      $(".field-type__toggler").click();
      //номер мобильного телефона
      $("#phone").setValue("9951896940");
-     //чекбокс соглашения на обработку данных
+     //чекбокс соглашения на обработку данных (выключение)
+     $("#eula_accepted").click();
      //кнопка регистрации
+     $(".Button2").click();
+     //проверка результата
+     $(".registration__form").shouldHave(text("Михаил"),
+             text("Любезнов"),
+             text("mihail123lubeznow"),
+             text("Fh[fyutk123"),
+             text("9951896940"));
     }
 }
