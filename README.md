@@ -1,12 +1,12 @@
 #Тест avito
-Провалиться в папку с автотестом 
-Кликнуть Gradle
-Раскрыть папку Tasks
-Раскрыть папку verification
-Клик по allureServe 
+1.Провалиться в папку с автотестом 
+2.Кликнуть Gradle
+3.Раскрыть папку Tasks
+4.Раскрыть папку verification
+5.Клик по allureServe 
 #Тест yandex
-Провалиться в папку с автотестом 
-Кликнуть Gradle
-Раскрыть папку Tasks
-Раскрыть папку verification
-Клик по allureServe 
+1.Провалиться в папку с автотестом 
+2.Кликнуть Gradle
+3.Раскрыть папку Tasks
+4.Раскрыть папку verification
+5.Клик по allureServe 
